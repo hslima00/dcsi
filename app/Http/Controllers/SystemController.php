@@ -11,10 +11,9 @@ class SystemController extends Controller
 
     public function index()
     {
-        $systems = System::all();
-
-        foreach ($systems as $system) {
-            $this->getParentRelationship($system);
+        $systems = [];
+        foreach (System::all()->toArray() as $system) {
+            $systems[] = $this->getParentRelationship($system);
         }
 
         return Inertia::render('Systems/Index', [
@@ -24,10 +23,12 @@ class SystemController extends Controller
 
     public function getParentRelationship($system)
     {
-        if ($system->parent_system_id != null) {
-            $system->load('parentSystem');
-            $this->getParentRelationship($system->parentSystem());
+        if (isset($system['parent_system_id'])) {
+            $system['parent_system'] = System::where('id', $system['parent_system_id'])->first()->toArray();
+            $system['parent_system'] = $this->getParentRelationship($system['parent_system']);
         }
+
+        return $system;
     }
 
 

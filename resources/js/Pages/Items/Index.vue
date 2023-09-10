@@ -7,7 +7,7 @@
     />
 
     <TableWithImages :items="items" :systems="systems"/>
-    {{console.log(systems)}}
+
   </DashboardLayout>
 
 

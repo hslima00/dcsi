@@ -79,7 +79,7 @@ const createNextDropdown = (index) => {
 <template>
     <DashboardLayout>
         <div>
-            <h2 class="text-lg font-semibold mb-2">Create New System</h2>
+            <h2 class="text-lg font-semibold mb-2">Criar novo sistema</h2>
             <form @submit.prevent="submit">
                 <InputLabel id="name" for="name" value="Nome *"/>
                 <TextInput
@@ -96,8 +96,8 @@ const createNextDropdown = (index) => {
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-medium" for="parentSystem">Parent System
-                        (Optional)</label>
+                    <label class="block text-gray-700 text-sm font-medium" for="parentSystem">Hierarquia de sistemas
+                        (Opcional)</label>
                     <div v-for="(dropdown, index) in dropdowns" :key="index">
                         <select
                             v-model="dropdown.selected"
@@ -106,7 +106,7 @@ const createNextDropdown = (index) => {
                             @change="createNextDropdown(index)"
                         >
 
-                            <option value="">Select System</option>
+                            <option value="">Selecionar sistema</option>
                             <option v-for="system in dropdown.systems" :key="system.id" :value="system.id">
                                 {{ system.name }} ({{ system.id }})
                             </option>

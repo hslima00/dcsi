@@ -2,7 +2,7 @@
 
   <div class="inline-block min-w-full py-2 align-middle">
     <div class="sm:flex sm:items-center">
-      <div class="sm:flex-auto">
+      <div class="sm:flex-auto justify-between">
         <p class="mt-2 text-sm text-gray-700">
           Base de dados de todos os items do armazem da DCSI.
         </p>
@@ -68,12 +68,6 @@
           </td>
           <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm">
             <div class="flex items-center">
-              <div class="h-11 w-11 flex-shrink-0">
-                <a :href="'/items/' + item.id">
-                  <img :src="item.image" alt=""
-                       class="hover:scale-125 transition duration-500 cursor-pointer rounded-full"/>
-                </a>
-              </div>
               <div class="ml-4">
                 <!-- name that is clicable and has a link-->
                 <a :href="'/items/' + item.id">
@@ -195,6 +189,8 @@
 import {Link} from '@inertiajs/vue3';
 import { router } from '@inertiajs/vue3'
 import '@fortawesome/fontawesome-free/css/all.css';
+import {watch, ref} from "vue";
+import {Inertia} from "@inertiajs/inertia";
 
 
 const props = defineProps({

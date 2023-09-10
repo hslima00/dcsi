@@ -135,7 +135,7 @@ current: '/items'
         // if current page is items, then current is true, else current is false
 
     },
-    {name: 'Sistemas', href: '/systems', current: '/systems'},
+    {name: 'Sistemas', href: '/systems/create', current: '/systems/create'},
 ]
 const userNavigation = [
     {name: 'Terminar Sessão', href: '#'},

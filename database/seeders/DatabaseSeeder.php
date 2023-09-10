@@ -16,20 +16,20 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
          \App\Models\User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
+             'name' => 'DCSI',
+             'email' => 'DCSI@emfa.com',
              // force password to be 'password'
-                'password' => bcrypt('password'),
+                'password' => bcrypt('dcsi'),
          ]);
 
 
 
 
         // Create the root systems (systems without parents)
-        $rootSystems = System::factory(2)->create();
+/*        $rootSystems = System::factory(2)->create();*/
 
         // Create child systems for each root system
-        foreach ($rootSystems as $rootSystem) {
+/*        foreach ($rootSystems as $rootSystem) {
             $childSystems = System::factory(2)->create([
                 'parent_system_id' => $rootSystem->id,
             ]);
@@ -40,9 +40,9 @@ class DatabaseSeeder extends Seeder
                     'parent_system_id' => $childSystem->id,
                 ]);
             }
-        }
+        }*/
 
-         \App\Models\Item::factory(10)->create();
+        /* \App\Models\Item::factory(10)->create();*/
 
          //\App\Models\Subsystem::factory(10)->create(); // cria 10 itens
          // create user
